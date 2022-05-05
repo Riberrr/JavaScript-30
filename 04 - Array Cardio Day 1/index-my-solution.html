@@ -38,21 +38,29 @@
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
 
-    const range = (value) => {return value.year < 1600 && value.year > 1499}
-    let born = inventors.filter(range)
-    console.log('1. Filter the list of inventors for those who were born in the 1500s')
-    console.log(born)
+            const range = (value) => {return value.year < 1600 && value.year > 1499}
+            let born = inventors.filter(range)
+            console.log('1. Filter the list of inventors for those who were born in the 1500s')
+            console.log(born)
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
-    let names = (v) => {return v.first + " " + v.last}
-    let listOfNames = inventors.map(names);
-    console.log('2. Give us an array of the inventors first and last names')
-    console.log(listOfNames)
+
+            let names = (v) => {return v.first + " " + v.last}
+            let listOfNames = inventors.map(names);
+            console.log('2. Give us an array of the inventors first and last names')
+            console.log(listOfNames);
 
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+
+            let birthDateSort = inventors.sort( (a, b) => { 
+              if((a.passed - a.year) > (b.passed - b.year)) return -1;
+              if((a.passed - a.year) < (b.passed - b.year)) return 1;
+            });
+            console.log("3. Sort the inventors by birthdate, oldest to youngest")
+            console.log(birthDateSort);
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
