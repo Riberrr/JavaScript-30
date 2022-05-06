@@ -82,20 +82,29 @@
 
             const Boulevards = people.filter((x) => { 
               if (x.includes('de')) return x})
-
+              console.log("6. create a list of Boulevards in Paris that contain 'de' anywhere in the name")
               console.log(Boulevards)       
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
               
-              const sortNames = people.sort((a, b) => {
-                const r = "\s+[^\s]+";
-                console.log(a.match(r))
-              })
+          const sortByLastName = people.sort((name1, name2) => {
+            if (name1.toString().split(", ")[1] > name2.toString().split(", ")[1]) return 1;
+            if (name1.toString().split(", ")[1] < name2.toString().split(", ")[1]) return -1;   
+          });
+          console.log("7. sort Exercise - Sort the people alphabetically by last name")
+          console.log(sortByLastName)
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+          const count = data.reduce((accumulator, value) => {
+            accumulator[value] = (accumulator[value] || 0) +1
+            return accumulator
+          }, {});
+        console.log("8. Reduce Exercise - Sum up the instances of each of these")
+        console.table(count)
 
   </script>
 </body>
